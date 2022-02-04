@@ -1,4 +1,4 @@
-# Topic: Income optmizer with price elasticity - Help Airbnb Hosts Improve Income with Optimal Price-Booking Tradeoff 
+# Income optmizer with price elasticity - Help Airbnb Hosts Improve Income with Optimal Price-Booking Tradeoff 
 
 ## Problem Statement
 
@@ -19,14 +19,11 @@ The listing data includes
 - Features of the listing itself: title, description
 - review scores: overall and on different categories 
 
-The review data includes
-- reviews for the listings
+
 
 ### Models
 #### Stage 1. Predict listing price with basic listing features (location, room type, size, listing text) 
-- Linear regression with 
-- kNN
-- Decision tree
+- 
 - Random forest
 - Gradient Boosting regression
 
