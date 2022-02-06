@@ -12,7 +12,7 @@ Audience: Airbnb hosts
 ## Data and Method
 
 ### Data
-Airbnb listings data for three counties (San Francisco, San Mateo, Santa Clara) from [Inside Airbnb](http://insideairbnb.com/get-the-data.html). 
+Airbnb listings data for three Bay Area counties (San Francisco, San Mateo, Santa Clara), collected between late October to early December 2021, from [Inside Airbnb](http://insideairbnb.com/get-the-data.html). 
 
 The listings data include: 
 - Lising price
@@ -21,6 +21,10 @@ The listings data include:
 - Available amenities
 - Review scores and review counts
 - Information provided about the unit or host on Airbnb
+
+In the current analysis, 
+1. Listings that charge over $1000/night were dropped.
+2. Neighborhoods and property types that have less than 100 listings were grouped under "Other", respectively.
 
 ##### Data Dictionary
 
@@ -85,7 +89,57 @@ The following models were trained and evaluated.
 
 ### Explortary Data Analysis
 
+#### Price
 
+![price in histogram](../Plots/price_hist.png)
+
+
+![price by county in histogram](../Plots/price_bycounty_hist2.png)
+
+#### Price and the features
+
+![correlation between price and all features in heatmap](../Plots/corr_price_features_heat.png)
+
+![correlation between price and size features in regplot](../Plots/corr_price_sizes_regplot.png)
+
+
+![correlation between price and review scores in regplot](../Plots/corr_price_reviewscores_regplot.png)
+
+The entire units (residential homes, townhouses, condo/apartment), have higher prices than private rooms in an unit. The hotel rooms ranked between the two.
+
+![price by property type in barh](../Plots/price_propertytype_barh.png)
+
+The most expensive neighborhoods are Russian Hill, Pacific Heights and Marina, all in San Francisco.
+
+![top 10 neighborhoods by price in barh](../Plots/price_neighborhood_top10_barh.png)
+
+#### 30-day vacancy
+
+On average, Santa Clara's 30-day vacancy is highest and that of San Francisco is lowest.
+![avail30 by county in hist](../Plots/avail30_bycounty_hist2.png)
+
+
+
+#### 30-day vacancy and features
+
+Among reviews on specific aspects, 
+- listing info accuracy and perceived value are most correlated to the overall rating
+- location is least correlated to the overall rating.
+
+![correlation between avail30 and review scores and counts in triangle](../Plots/corr_avail30_reviewfeatures_heat_triagle.png)
+
+30-day vacancy is negative related to all review scores and counts.
+> - The overall rating has the highest correlaton with the 30-day vacancy among all review related features.
+
+
+![correlation between avail30 and review scores and counts in one column](../Plots/corr_avail30_reviewfeatures_heat.png)
+
+
+Listings with information on host acceptance rate and and response time have lower 30-day vacancy. 
+
+![correlation between avail30 and flag columns in heatmap](../Plots/corr_avail30_flagcols_heat.png)
+
+<br>
 
 ### Model Summary
 
