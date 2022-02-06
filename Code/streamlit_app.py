@@ -72,24 +72,23 @@ elif page == 'Predict 30-day income':
 
     st.write("Please check the amenities available in your listing unit.")
     # amenities
-    col11, col12, col13, col14, col15 = st.columns([0.8,1.2,1.8,2,2])
+    col11, col12, col13 = st.columns(3)
     with col11:
         wifi = st.checkbox("Wifi")
-        pool = st.checkbox("Pool")
+        workspace = st.checkbox("Dedicated workspace")
+        indoor_fireplace = st.checkbox("Indoor fireplace")
+
 
     with col12:
         BBQ_grill = st.checkbox("BBQ_grill")
         backyard = st.checkbox("Backyard")
+        pool = st.checkbox("Pool")
 
     with col13:
         patio_or_balcony = st.checkbox("Patio/balcony")
-        private_entrance = st.checkbox("Private entrance")
-
-    with col14:
-        workspace = st.checkbox("Dedicated workspace")
-        indoor_fireplace = st.checkbox("Indoor fireplace")
-    with col15:
         outdoor_furniture = st.checkbox("Outdoor furniture")
+        private_entrance = st.checkbox("Private entrance")        
+
 
 
     st.markdown('---')
@@ -148,7 +147,7 @@ elif page == 'Predict 30-day income':
               'bathroom_type': bathroom_type,
               'minimum_nights': int(minimum_nights),
               'maximum_nights': int(maximum_nights),
-              # amenities
+              #amenities
               'Wifi': wifi,
               'Dedicated_workspace': workspace,
               'Private_entrance': private_entrance,
@@ -176,7 +175,8 @@ elif page == 'Predict 30-day income':
               'host_response_time_f': host_response_time_f,
               'host_response_rate_f': host_response_rate_f,
               'host_acceptance_rate_f': host_acceptance_rate_f,
-              'host_neighbourhood_f': host_neighbourhood_f
+              'host_neighbourhood_f': host_neighbourhood_f,
+              'random': np.random.random()
               }
     input_data_df_m1 = pd.DataFrame(input_data_m1, index=[0])
     #st.dataframe(input_data_df_m1)
@@ -187,7 +187,7 @@ elif page == 'Predict 30-day income':
 
 
     # load saved model and predict
-    m1_filename = '../Models/m1_gs_rf_joblib.pkl'
+    m1_filename = '../Models/m1_gs_xgb.pkl'
     m1 = joblib.load(m1_filename)
     price_pred = m1.predict(input_data_df_m1)[0]
 
@@ -237,12 +237,13 @@ elif page == 'Predict 30-day income':
               'host_response_time_f': host_response_time_f,
               'host_response_rate_f': host_response_rate_f,
               'host_acceptance_rate_f': host_acceptance_rate_f,
-              'host_neighbourhood_f': host_neighbourhood_f
+              'host_neighbourhood_f': host_neighbourhood_f,
+              'random': np.random.random()
               }
     input_data_df_m2 = pd.DataFrame(input_data_m2, index=[0])
     # st.dataframe(input_data_df_m2)
 
-    m2_filename = '../Models/m21_gs_rf_joblib_poor.pkl'
+    m2_filename = '../Models/m21_gs_xgb_joblib.pkl'
     m2 = joblib.load(m2_filename)
     avail30_pred  = round(m2.predict(input_data_df_m2)[0])
     booking_pred = 30 - avail30_pred
