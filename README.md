@@ -80,12 +80,15 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 
 ![price by county in histogram](../Plots/price_bycounty_hist2.png)
 
+<br>
 
-#### Price and features
+#### Price and numeric features
 
 1. Price is most correlated with size related features, such as the number of bedrooms , the bathrooms, and the number of people the unit can accommodate. 
 2. Some amenities are positively correlated with price: indoor fireplace, private entrance, BBQ grill and patio or balcony, etc.
 3. Review scores on overall rating, cleanliness and location are weakly correlated with price.
+
+<br>
 
 ![correlation between price and all features in heatmap](../Plots/corr_price_features_heat.png)
 
@@ -94,6 +97,8 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 ![correlation between price and review scores in regplot](../Plots/corr_price_reviewscores_regplot.png)
 
 <br>
+
+#### Price and property type and neighborhood
 
 1. The entire units (residential homes, townhouses, condo/apartment), have higher prices than private rooms in a unit. The hotel rooms ranked between the two.
 2. The most expensive neighborhoods are Russian Hill, Pacific Heights and Marina, all in San Francisco.
@@ -105,6 +110,9 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 <br>
 
 #### 30-Day vacancy
+
+<br>
+
 1. The overall 30-day vacancy is 17 days. 
 2. On average, Santa Clara's 30-day vacancy is the highest (18.1) and that of San Francisco (15.6) is the lowest.
 
@@ -112,8 +120,11 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 
 ![avail30 by county in hist](../Plots/avail30_bycounty_hist2.png)
 
+<br>
 
 #### 30-Day vacancy and features
+
+<br>
 
 30-day vacancy is negatively related to all review scores and counts.
 > - The overall rating has the highest correlaton with the 30-day vacancy among all review related features.
@@ -137,6 +148,8 @@ Among reviews on specific aspects,
 <br>
 
 ### Model Summary
+
+<br>
 
 #### Stage 1: Predict listing price
 
@@ -261,7 +274,6 @@ In terms of amenities,
 Use [the tool](http://localhost:8501/) to find the optimal combination of the unit features, Airbnb account management (information provision), and the listing price, to maximize the 30-day total income from a listing unit.   
 
 <br>
-
 
 ## Next steps
 1. Try to further reduce the overfitting issue. 
