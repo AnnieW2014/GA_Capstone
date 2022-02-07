@@ -29,7 +29,7 @@ In the current analysis,
 2. Neighborhoods and property types that have less than 100 listings were grouped under "Other", respectively.
 3. The goal is to maximize the total income in the next 30 days. Therefore, listings that have zero availability in the next 30 days were dropped.
 
-See [here](Data_Dictionary) for a detailed data dictionary.
+See [here](https://github.com/AnnieW2014/GA_Capstone/blob/main/Data_Dictionary.md) for a detailed data dictionary.
 
 <br>
 
@@ -76,9 +76,9 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 1. The overall average price is \$178. Most listings are below $300.
 2. The average price is highest in San Francisco and lowest in Santa Clara.
 
-![price in histogram](../Plots/price_hist.png)
+![price in histogram](/Plots/price_hist.png)
 
-![price by county in histogram](../Plots/price_bycounty_hist2.png)
+![price by county in histogram](/Plots/price_bycounty_hist2.png)
 
 <br>
 
@@ -90,11 +90,11 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 
 <br>
 
-![correlation between price and all features in heatmap](../Plots/corr_price_features_heat.png)
+![correlation between price and all features in heatmap](/Plots/corr_price_features_heat.png)
 
-![correlation between price and size features in regplot](../Plots/corr_price_sizes_regplot.png)
+![correlation between price and size features in regplot](/Plots/corr_price_sizes_regplot.png)
 
-![correlation between price and review scores in regplot](../Plots/corr_price_reviewscores_regplot.png)
+![correlation between price and review scores in regplot](/Plots/corr_price_reviewscores_regplot.png)
 
 <br>
 
@@ -103,9 +103,9 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 1. The entire units (residential homes, townhouses, condo/apartment), have higher prices than private rooms in a unit. The hotel rooms ranked between the two.
 2. The most expensive neighborhoods are Russian Hill, Pacific Heights and Marina, all in San Francisco.
 
-![price by property type in barh](../Plots/price_propertytype_barh.png)
+![price by property type in barh](/Plots/price_propertytype_barh.png)
 
-![top 10 neighborhoods by price in barh](../Plots/price_neighborhood_top10_barh.png)
+![top 10 neighborhoods by price in barh](/Plots/price_neighborhood_top10_barh.png)
 
 <br>
 
@@ -116,9 +116,9 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 1. The overall 30-day vacancy is 17 days. 
 2. On average, Santa Clara's 30-day vacancy is the highest (18.1) and that of San Francisco (15.6) is the lowest.
 
-![avail30 in hist](../Plots/avail30_hist.png)
+![avail30 in hist](/Plots/avail30_hist.png)
 
-![avail30 by county in hist](../Plots/avail30_bycounty_hist2.png)
+![avail30 by county in hist](/Plots/avail30_bycounty_hist2.png)
 
 <br>
 
@@ -129,13 +129,13 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 30-day vacancy is negatively related to all review scores and counts.
 > - The overall rating has the highest correlaton with the 30-day vacancy among all review related features.
 
-![correlation between avail30 and review scores and counts in one column](../Plots/corr_avail30_reviewfeatures_heat.png)
+![correlation between avail30 and review scores and counts in one column](/Plots/corr_avail30_reviewfeatures_heat.png)
 
 <br>
 
-Listings that provide host acceptance rate and and response time have lower 30-day vacancy. 
+Listings that provide host acceptance rate and response time have lower 30-day vacancy. 
 
-![correlation between avail30 and flag columns in heatmap](../Plots/corr_avail30_flagcols_heat.png)
+![correlation between avail30 and flag columns in heatmap](/Plots/corr_avail30_flagcols_heat.png)
 
 <br>
 
@@ -143,7 +143,7 @@ Among reviews on specific aspects,
 - listing info accuracy and perceived value are most correlated to the overall rating
 - location is least correlated to the overall rating.
 
-![correlation between avail30 and review scores and counts in triangle](../Plots/corr_avail30_reviewfeatures_heat_triagle.png)
+![correlation between avail30 and review scores and counts in triangle](/Plots/corr_avail30_reviewfeatures_heat_triagle.png)
 
 <br>
 
@@ -190,7 +190,7 @@ Price and 30-day vacancy share some important predictors (e.g., bathroom type, c
 >- size: number of bedrooms and bathrooms, how many people to accommodate
 >- location: county, some neighborhoods
 >- property type (entire unit vs one room) and bathrooms type (private or shared)
->- amenities: Pool, Wifi
+>- amenities: indoor fireplace, private entrance, BBQ grill, pool and Wifi
 
 2. The most important features predicting **30-day vacancy** are: 
 >- activity level: review count in last 12 months and last 30 days
@@ -249,24 +249,24 @@ See the table below for the top 15 important features for predicting price and 3
 
 ### streamlit app implementation
 
-At [this webpage](http://localhost:8501/), an Airbnb host can predict their 30-day income by providing some info about their unit and the price they'd like to charge. 
+Airbnb hosts can use [this tool](http://localhost:8501/) to predict their 30-day income by providing some info about their unit and the price they'd like to charge. 
 
 <br>
 
 ## Conclusions
 To maximize the total income, hosts should optimize both price and demand at the same time, and understand their interdependence and their drivers.
 
-Location, bathroom type (private vs shared) and the minimum number of nights to book are important predictors shared by price and 30-day vacancy. 
+Location, bathroom type (private vs shared) and the minimum number of nights to book are important predictors shared by price and 30-day vacancy. Having a patio/balcony and having a pool are important for both pricing and vacancy. 
 
-Size features (number of bedrooms and bathrooms, total number of people to accommodate) are the most important predictors for price, and are less important for demand. This is probably because while bigger units are reasonably be more expensive, different sizes have their own share of the market.    
+Size features (number of bedrooms and bathrooms, total number of people to accommodate) are the most important predictors for price, and are less important for demand. This is probably because while bigger units are reasonably more expensive, different sizes have their own share of the market.    
 
 The number of reviews a unit received in last 12 months and whether the host acceptance rate is provided on the website are the most important predictors for 30-day vacancy, and are not as important for pricing. There are two potential reasons. 
 - The number of reviews indicates how active the unit has been (how frequently it has been booked). So it could also predict how active it would be in the near future. 
-- Listings with more reviews look more pouplar and reliable to guests, with other things comparable. In this way, they become more desirable and have lower vacancy.  
+- Listings with more reviews look more pouplar and reliable to guests, with other things comparable. In this way, they become more desirable and have lower vacancy.   
 
 In terms of amenities, 
-- Pool and wifi are important to pricing, indoor fireplace and BBQ grill to a lessor extent. 
-- Patio or balcony, pool, backyard, outdoor furniture and private entrance are important for demand.   
+- Wifi is important to pricing, and so are indoor fireplace and BBQ grill, to a lessor extent. 
+- Having a backyard, outdoor furniture and private entrance are important for demand prediction.   
 
 <br>
 
