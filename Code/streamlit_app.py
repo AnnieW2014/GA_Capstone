@@ -22,8 +22,6 @@ if page == 'About':
     st.subheader('About this project')
     st.write('''
 This is a Streamlit app that helps Airbnb hosts maximize their income, by optimizing both listing price and demand at the same time. It also helps understand their interdependence and their drivers.
-
-.
     ''')
 elif page == 'Predict 30-day income':
     st.title('Predict your 30-day income')
@@ -49,8 +47,6 @@ elif page == 'Predict 30-day income':
         neighborhood = st.selectbox('Neighborhood', neighborhood_list)
         accommodates = st.number_input("Total number of poeple", 1, 10)
         bedrooms = st.number_input("Number of bedrooms", 1, 5)
-
-
     with col2:
         beds = st.number_input("Number of beds", 1,6)
         bathrooms = st.selectbox("Number of bathrooms",
@@ -58,13 +54,11 @@ elif page == 'Predict 30-day income':
         bathroom_type = st.selectbox("Bathroom type",
                             ["Private","Shared"])
         number_of_reviews_ltm = st.number_input("Number of reviews last 12 months", 1)
-
     with col3:
         minimum_nights = st.number_input("minimum_nights", 1)
         maximum_nights = st.number_input("maximum_nights", 1)
         number_of_reviews = st.number_input("Total number of reviews", 1)
         number_of_reviews_l30d = st.number_input("Number of reviews last 30 days", 1)
-
 
 
     st.markdown('---')
@@ -76,18 +70,14 @@ elif page == 'Predict 30-day income':
         wifi = st.checkbox("Wifi")
         workspace = st.checkbox("Dedicated workspace")
         indoor_fireplace = st.checkbox("Indoor fireplace")
-
-
     with col12:
         BBQ_grill = st.checkbox("BBQ_grill")
         backyard = st.checkbox("Backyard")
         pool = st.checkbox("Pool")
-
     with col13:
         patio_or_balcony = st.checkbox("Patio/balcony")
         outdoor_furniture = st.checkbox("Outdoor furniture")
         private_entrance = st.checkbox("Private entrance")
-
 
 
     st.markdown('---')
@@ -97,11 +87,9 @@ elif page == 'Predict 30-day income':
     with col21:
         review_scores_rating = st.number_input('Overall rating', 1.0, 5.0)
         review_scores_accuracy = st.number_input('Accuracy', 1.0, 5.0)
-
     with col22:
         review_scores_cleanliness = st.number_input('Cleanliness', 1.0, 5.0)
         review_scores_checkin = st.number_input('Checkin', 1.0, 5.0)
-
     with col23:
         review_scores_communication = st.number_input('Communication', 1.0, 5.0)
         review_scores_location = st.number_input('Location', 1.0, 5.0)
@@ -181,16 +169,12 @@ elif page == 'Predict 30-day income':
     #st.dataframe(input_data_df_m1)
 
 
-
-
-
-
     # load saved model and predict
     m1_filename = '../Models/m1_gs_xgb.pkl'
     m1 = joblib.load(m1_filename)
     price_pred = m1.predict(input_data_df_m1)[0]
 
-    st.write("Predicted listing price is", round(price_pred,2), "dollars.")
+    #st.write("Predicted listing price is", round(price_pred,2), "dollars.")
 
 
     # Model 2
