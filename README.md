@@ -251,9 +251,6 @@ In terms of amenities,
 - Pool and wifi are important to pricing, indoor fireplace and BBQ grill to a lessor extent. 
 - Patio or balcony, pool, backyard, outdoor furniture and private entrance are important for demand.   
 
-#### Discussion
-
-
 <br>
 
 ## Recommendations
@@ -263,3 +260,11 @@ Use [the tool](http://localhost:8501/) to find the optimal combination of the un
 
 
 ## Next steps
+1. Try to further reduce the overfitting issue. 
+>- find or create a higher-level feature for neighborhood: currently, the county column is too high level and the neighborhood column is too detailed.
+>- feature engineering: use composite features based on principal component analysis
+2. The prediction model for 30-day vacancy has a lot of room for improvement. Some methods in the plan include:
+>- Better understand the availability columns: further examine data quality, understand how voluntary unavailability works here
+>- Use more data: collect data for more counties since the dataset was noticeably reduced when droppoing the listings that have zero 30-day vacancy.
+>- Add more features: There are more data on the website, including review text. 
+>- feature engineering
