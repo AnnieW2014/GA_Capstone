@@ -2,14 +2,15 @@
 
 ## Problem Statement
 
-**Goal**: 
-Help Airbnb hosts maximize their total income by optimizing their listing price and booking rate 
-- What can a host do to improve the listing price of their unit?
-- What can a host do to reduce the vacancy rate of their unit?
+### Goals 
+- Help Airbnb hosts maximize their total income by optimizing their listing price and booking rate 
+- Provide a tool to calculate the income in different scenarios
 
-The primary goal is prediction. Some inferences would be drawn from feature importance if possible.
+### Business questions
+- What would be a reasonable price for the listing unit?
+- How would price affect demand, and then affect income?
+- What leverages  can be pulled to improve price and demand?
 
-The audience for this project are the Airbnb hosts.
 
 ## Data and Method
 
@@ -18,7 +19,7 @@ Airbnb listings data for three Bay Area counties (San Francisco, San Mateo, Sant
 
 The listings data include the following information: 
 - Listing price
-- Availability in the next 30 days
+- Availability in the next 30, 60 and 90 days
 - Location and size of the unit
 - Amenities
 - Review scores and review counts
@@ -84,7 +85,7 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 
 #### Price and numeric features
 
-1. Price is most correlated with size related features, such as the number of bedrooms , the bathrooms, and the number of people the unit can accommodate. 
+1. Price is most correlated with size related features, such as the number of bedrooms, bathrooms, and the number of people the unit can accommodate. 
 2. Some amenities are positively correlated with price: indoor fireplace, private entrance, BBQ grill and patio or balcony, etc.
 3. Review scores on overall rating, cleanliness and location are weakly correlated with price.
 
@@ -133,14 +134,14 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 
 <br>
 
-Listings that provide host acceptance rate and and response time have lower 30-day vacancy. 
+Listings that provide host acceptance rate and response time have lower 30-day vacancy. 
 
 ![correlation between avail30 and flag columns in heatmap](../Plots/corr_avail30_flagcols_heat.png)
 
 <br>
 
-Among reviews on specific aspects, 
-- listing info accuracy and perceived value are most correlated to the overall rating
+Among review scores on specific aspects, 
+- listing info accuracy and perceived value are most correlated to the overall rating.
 - location is least correlated to the overall rating.
 
 ![correlation between avail30 and review scores and counts in triangle](../Plots/corr_avail30_reviewfeatures_heat_triagle.png)
@@ -153,7 +154,7 @@ Among reviews on specific aspects,
 
 #### Stage 1: Predict listing price
 
-The XGBoost model with grid search using the top 50 features was selected as the final model and was used to create the predicted price, which was used in the Stage 2 model.
+The XGBoost model with grid search using the top 50 features was selected as the final model and was used to create the predicted price used in the Stage 2 model.
 
 | **Model**                                     | **R2 train** | **R2 test** | **MSE train** | **MSE test** |
 |-----------------------------------------------|--------------|-------------|---------------|--------------|
@@ -190,7 +191,7 @@ Price and 30-day vacancy share some important predictors (e.g., bathroom type, c
 >- size: number of bedrooms and bathrooms, how many people to accommodate
 >- location: county, some neighborhoods
 >- property type (entire unit vs one room) and bathrooms type (private or shared)
->- amenities: Pool, Wifi
+>- amenities: indoor fireplace, private entrance, BBQ grill, pool and Wifi
 
 2. The most important features predicting **30-day vacancy** are: 
 >- activity level: review count in last 12 months and last 30 days
@@ -247,26 +248,26 @@ See the table below for the top 15 important features for predicting price and 3
 
 <br>
 
-### streamlit app implementation
+### Streamlit app
 
-At [this webpage](http://localhost:8501/), an Airbnb host can predict their 30-day income by providing some info about their unit and the price they'd like to charge. 
+Airbnb hosts can use [this tool](http://localhost:8501/) to predict their 30-day income by providing some info about their unit and the price they'd like to charge. 
 
 <br>
 
 ## Conclusions
 To maximize the total income, hosts should optimize both price and demand at the same time, and understand their interdependence and their drivers.
 
-Location, bathroom type (private vs shared) and the minimum number of nights to book are important predictors shared by price and 30-day vacancy. 
+Location, bathroom type (private vs shared) and the minimum number of nights to book are important predictors shared by price and 30-day vacancy. Having a patio/balcony and having a pool are important for both pricing and vacancy. 
 
-Size features (number of bedrooms and bathrooms, total number of people to accommodate) are the most important predictors for price, and are less important for demand. This is probably because while bigger units are reasonably be more expensive, different sizes have their own share of the market.    
+Size features (number of bedrooms and bathrooms, total number of people to accommodate) are the most important predictors for price, and are less important for demand. This is probably because while bigger units are reasonably more expensive, different sizes have their own share of the market.    
 
 The number of reviews a unit received in last 12 months and whether the host acceptance rate is provided on the website are the most important predictors for 30-day vacancy, and are not as important for pricing. There are two potential reasons. 
 - The number of reviews indicates how active the unit has been (how frequently it has been booked). So it could also predict how active it would be in the near future. 
 - Listings with more reviews look more pouplar and reliable to guests, with other things comparable. In this way, they become more desirable and have lower vacancy.  
 
 In terms of amenities, 
-- Pool and wifi are important to pricing, indoor fireplace and BBQ grill to a lessor extent. 
-- Patio or balcony, pool, backyard, outdoor furniture and private entrance are important for demand.   
+- Wifi is important to pricing, and so are indoor fireplace and BBQ grill, to a lessor extent. 
+- Having a backyard, outdoor furniture and private entrance are important for demand prediction.   
 
 <br>
 
