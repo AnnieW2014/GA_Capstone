@@ -21,10 +21,9 @@ if page == 'About':
     st.title('Income Optimizer for Airbnb Hosts')
     st.subheader('About this project')
     st.write('''
-This is a Streamlit app that hosts my Poe vs. Austen model.
-The best model I found was....
-You can get in touch with me on these websites....
-etc.
+This is a Streamlit app that helps Airbnb hosts maximize their income, by optimizing both listing price and demand at the same time. It also helps understand their interdependence and their drivers.
+
+.
     ''')
 elif page == 'Predict 30-day income':
     st.title('Predict your 30-day income')
@@ -87,7 +86,7 @@ elif page == 'Predict 30-day income':
     with col13:
         patio_or_balcony = st.checkbox("Patio/balcony")
         outdoor_furniture = st.checkbox("Outdoor furniture")
-        private_entrance = st.checkbox("Private entrance")        
+        private_entrance = st.checkbox("Private entrance")
 
 
 
