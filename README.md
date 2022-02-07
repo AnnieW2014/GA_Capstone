@@ -75,8 +75,8 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 
 1. The overall average price is \\$178. Most listings are below $300.
 2. The average price is highest in San Francisco and lowest in Santa Clara.
-![price in histogram](../Plots/price_hist.png)
 
+![price in histogram](../Plots/price_hist.png)
 
 ![price by county in histogram](../Plots/price_bycounty_hist2.png)
 
