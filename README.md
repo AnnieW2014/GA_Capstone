@@ -4,7 +4,7 @@
 
 **Goal**: 
 Help Airbnb hosts maximize their total income by optimizing their listing price and booking rate 
-- What can a host do to improve the listing price of their?
+- What can a host do to improve the listing price of their unit?
 - What can a host do to reduce the vacancy rate of their unit?
 
 The primary goal is prediction. Some inferences would be drawn from feature importance if possible.
@@ -17,12 +17,12 @@ The audience for this project are the Airbnb hosts.
 Airbnb listings data for three Bay Area counties (San Francisco, San Mateo, Santa Clara), collected between late October to early December 2021, from [Inside Airbnb](http://insideairbnb.com/get-the-data.html). 
 
 The listings data include the following information: 
-- Lising price
+- Listing price
 - Availability in the next 30 days
 - Location and size of the unit
-- Available amenities
+- Amenities
 - Review scores and review counts
-- Information provided on Airbnb about the unit and the host 
+- Availability of more information about the unit and the host 
 
 In the current analysis, 
 1. Listings that charge over $1000/night were dropped, which is 1.3% of the data.
@@ -95,7 +95,7 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 
 <br>
 
-1. The entire units (residential homes, townhouses, condo/apartment), have higher prices than private rooms in an unit. The hotel rooms ranked between the two.
+1. The entire units (residential homes, townhouses, condo/apartment), have higher prices than private rooms in a unit. The hotel rooms ranked between the two.
 2. The most expensive neighborhoods are Russian Hill, Pacific Heights and Marina, all in San Francisco.
 
 ![price by property type in barh](../Plots/price_propertytype_barh.png)
@@ -104,13 +104,16 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 
 <br>
 
-#### 30-day vacancy
+#### 30-Day vacancy
 1. The overall 30-day vacancy is 17 days. 
 2. On average, Santa Clara's 30-day vacancy is the highest (18.1) and that of San Francisco (15.6) is the lowest.
+
+![avail30 in hist](../Plots/avail30_hist.png)
+
 ![avail30 by county in hist](../Plots/avail30_bycounty_hist2.png)
 
 
-#### 30-day vacancy and features
+#### 30-Day vacancy and features
 
 30-day vacancy is negatively related to all review scores and counts.
 > - The overall rating has the highest correlaton with the 30-day vacancy among all review related features.
@@ -119,7 +122,7 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 
 <br>
 
-Listings with information on host acceptance rate and and response time have lower 30-day vacancy. 
+Listings that provide host acceptance rate and and response time have lower 30-day vacancy. 
 
 ![correlation between avail30 and flag columns in heatmap](../Plots/corr_avail30_flagcols_heat.png)
 
@@ -238,7 +241,7 @@ At [this webpage](http://localhost:8501/), an Airbnb host can predict their 30-d
 <br>
 
 ## Conclusions
-To maximize the total income, hosts should optimize both price and demand at the same time, understanding their interdependence (if not tradeoff) and their shared and unique drivers.
+To maximize the total income, hosts should optimize both price and demand at the same time, and understand their interdependence and their drivers.
 
 Location, bathroom type (private vs shared) and the minimum number of nights to book are important predictors shared by price and 30-day vacancy. 
 
@@ -247,6 +250,7 @@ Size features (number of bedrooms and bathrooms, total number of people to accom
 The number of reviews a unit received in last 12 months and whether the host acceptance rate is provided on the website are the most important predictors for 30-day vacancy, and are not as important for pricing. There are two potential reasons. 
 - The number of reviews indicates how active the unit has been (how frequently it has been booked). So it could also predict how active it would be in the near future. 
 - Listings with more reviews look more pouplar and reliable to guests, with other things comparable. In this way, they become more desirable and have lower vacancy.  
+
 In terms of amenities, 
 - Pool and wifi are important to pricing, indoor fireplace and BBQ grill to a lessor extent. 
 - Patio or balcony, pool, backyard, outdoor furniture and private entrance are important for demand.   
