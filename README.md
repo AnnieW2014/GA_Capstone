@@ -29,7 +29,7 @@ In the current analysis,
 2. Neighborhoods and property types that have less than 100 listings were grouped under "Other", respectively.
 3. The goal is to maximize the total income in the next 30 days. Therefore, listings that have zero availability in the next 30 days were dropped.
 
-See [here](Data_Dictionary) for a detailed data dictionary.
+See [here](https://github.com/AnnieW2014/GA_Capstone/blob/main/Data_Dictionary.md) for a detailed data dictionary.
 
 <br>
 
@@ -73,12 +73,12 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 
 #### Price
 
-1. The overall average price is \\$178. Most listings are below $300.
+1. The overall average price is \$178. Most listings are below $300.
 2. The average price is highest in San Francisco and lowest in Santa Clara.
 
-![price in histogram](../Plots/price_hist.png)
+![price in histogram](/Plots/price_hist.png)
 
-![price by county in histogram](../Plots/price_bycounty_hist2.png)
+![price by county in histogram](/Plots/price_bycounty_hist2.png)
 
 <br>
 
@@ -90,11 +90,11 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 
 <br>
 
-![correlation between price and all features in heatmap](../Plots/corr_price_features_heat.png)
+![correlation between price and all features in heatmap](/Plots/corr_price_features_heat.png)
 
-![correlation between price and size features in regplot](../Plots/corr_price_sizes_regplot.png)
+![correlation between price and size features in regplot](/Plots/corr_price_sizes_regplot.png)
 
-![correlation between price and review scores in regplot](../Plots/corr_price_reviewscores_regplot.png)
+![correlation between price and review scores in regplot](/Plots/corr_price_reviewscores_regplot.png)
 
 <br>
 
@@ -103,9 +103,9 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 1. The entire units (residential homes, townhouses, condo/apartment), have higher prices than private rooms in a unit. The hotel rooms ranked between the two.
 2. The most expensive neighborhoods are Russian Hill, Pacific Heights and Marina, all in San Francisco.
 
-![price by property type in barh](../Plots/price_propertytype_barh.png)
+![price by property type in barh](/Plots/price_propertytype_barh.png)
 
-![top 10 neighborhoods by price in barh](../Plots/price_neighborhood_top10_barh.png)
+![top 10 neighborhoods by price in barh](/Plots/price_neighborhood_top10_barh.png)
 
 <br>
 
@@ -116,9 +116,9 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 1. The overall 30-day vacancy is 17 days. 
 2. On average, Santa Clara's 30-day vacancy is the highest (18.1) and that of San Francisco (15.6) is the lowest.
 
-![avail30 in hist](../Plots/avail30_hist.png)
+![avail30 in hist](/Plots/avail30_hist.png)
 
-![avail30 by county in hist](../Plots/avail30_bycounty_hist2.png)
+![avail30 by county in hist](/Plots/avail30_bycounty_hist2.png)
 
 <br>
 
@@ -129,13 +129,13 @@ In the end, the overfitting was greatly reduced (see the Model Summary section).
 30-day vacancy is negatively related to all review scores and counts.
 > - The overall rating has the highest correlaton with the 30-day vacancy among all review related features.
 
-![correlation between avail30 and review scores and counts in one column](../Plots/corr_avail30_reviewfeatures_heat.png)
+![correlation between avail30 and review scores and counts in one column](/Plots/corr_avail30_reviewfeatures_heat.png)
 
 <br>
 
 Listings that provide host acceptance rate and and response time have lower 30-day vacancy. 
 
-![correlation between avail30 and flag columns in heatmap](../Plots/corr_avail30_flagcols_heat.png)
+![correlation between avail30 and flag columns in heatmap](/Plots/corr_avail30_flagcols_heat.png)
 
 <br>
 
@@ -143,7 +143,7 @@ Among reviews on specific aspects,
 - listing info accuracy and perceived value are most correlated to the overall rating
 - location is least correlated to the overall rating.
 
-![correlation between avail30 and review scores and counts in triangle](../Plots/corr_avail30_reviewfeatures_heat_triagle.png)
+![correlation between avail30 and review scores and counts in triangle](/Plots/corr_avail30_reviewfeatures_heat_triagle.png)
 
 <br>
 
