@@ -1,3 +1,8 @@
+# About me
+I am a data scientist with a quantitative social science background. I help companies better understand and predict people’s attitudes and behaviors to improve engagement, performance, retention, etc.
+
+
+
 # Income optmizer for Airbnb Hosts  
 
 ## Problem Statement
